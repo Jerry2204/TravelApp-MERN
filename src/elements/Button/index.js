@@ -15,19 +15,17 @@ export default function Button(props) {
   };
 
   if (props.isDisabled || props.isLoading) {
-      if (props.isDisabled) className.push("disabled")
+    if (props.isDisabled) className.push("disabled");
     return (
       <span className={className.join(" ")} style={props.style}>
-        {
-            props.isLoading ? (
-                <>
-                    <span className="spinner-border spinner-border-sm mx-5"></span>
-                    <span className="sr-only">Loading...</span>
-                </>
-            ) : (
-                props.children
-            )
-        }
+        {props.isLoading ? (
+          <>
+            <span className="spinner-border spinner-border-sm mx-5"></span>
+            <span className="sr-only">Loading...</span>
+          </>
+        ) : (
+          props.children
+        )}
       </span>
     );
   }
@@ -83,4 +81,5 @@ Button.propTypes = {
   isBlock: propTypes.bool,
   hasShadow: propTypes.bool,
   isExternal: propTypes.bool,
+  isPrimary: propTypes.bool
 };
