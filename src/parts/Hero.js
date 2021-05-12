@@ -17,14 +17,14 @@ export default function Hero(props) {
   return (
     <section className="container pt-4">
       <div className="row align-items-center">
-        <div className="col-auto pr-5" style={{ width: 555 }}>
+        <div className="col-auto pr-5" style={{ width: 530 }}>
           <h1 className="font-weight-bold line-height-1 mb-3">
             Take your time,
             <br />
             and vacation with your family
           </h1>
           <p
-            className="mb-5 font-weight-light text-gray-500 w-75"
+            className="mb-4 font-weight-light text-gray-500 w-75"
             style={{ lineHeight: "170%" }}
           >
             we provide what you need to enjoy your vacation with your family.
@@ -39,7 +39,7 @@ export default function Hero(props) {
             Show Me Now
           </Button>
 
-          <div className="row mt-5">
+          <div className="row" style={{ marginTop: "80px" }}>
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 width="32"
@@ -82,8 +82,8 @@ export default function Hero(props) {
             </div>
           </div>
         </div>
-        <div className="col-auto p-5">
-          <div className="image-hero" style={{ width: 400, height: 455 }}>
+        <div className="col-auto pl-5">
+          <div className="image-hero" style={{ width: 500, height: 455 }}>
             <img
               src={ImageHero}
               className="img-fluid position-absolute"
