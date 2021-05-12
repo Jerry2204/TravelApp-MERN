@@ -5,6 +5,7 @@ import IconTraveler from "assets/icons/icon_traveler.svg";
 import IconPlace from "assets/icons/icon_places.svg";
 import IconCountry from "assets/icons/icon_country.svg";
 import Button from "elements/Button";
+import numberFormat from "utils/FormatNumber";
 
 export default function Hero(props) {
   function showPopular() {
@@ -48,7 +49,7 @@ export default function Hero(props) {
                 alt={`${props.data.travelers} Travelers`}
               />
               <h6 className="mt-3">
-                {props.data.travelers}{" "}
+                {numberFormat(props.data.travelers)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   Travelers
                 </span>
@@ -62,7 +63,7 @@ export default function Hero(props) {
                 alt={`${props.data.places} Places`}
               />
               <h6 className="mt-3">
-                {props.data.places}{" "}
+                {numberFormat(props.data.places)}{" "}
                 <span className="text-gray-500 font-weight-light">Places</span>
               </h6>
             </div>
@@ -74,7 +75,7 @@ export default function Hero(props) {
                 alt={`${props.data.country} Country`}
               />
               <h6 className="mt-3">
-                {props.data.country}{" "}
+                {numberFormat(props.data.country)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   Countries
                 </span>
