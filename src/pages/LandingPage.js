@@ -5,12 +5,16 @@ import Hero from "parts/Hero";
 import Popular from "parts/Popular";
 
 export default class LandingPage extends Component {
+  constructor(props) {
+    super(props);
+    this.refPopular = React.createRef();
+  }
   render() {
     return (
       <>
         <Header {...this.props} />
-        <Hero data={landingPage.hero} />
-        <Popular data={landingPage.popular} />
+        <Hero refPopular={this.refPopular} data={landingPage.hero} />
+        <Popular refPopular={this.refPopular} data={landingPage.popular} />
       </>
     );
   }
