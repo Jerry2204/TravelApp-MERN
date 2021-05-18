@@ -1,18 +1,24 @@
 import React from "react";
 import propTypes from "prop-types";
+import "./index.scss";
 
-export default function Star({ value, height, width, spacing }) {
+export default function Star({ value, height, width, spacing, className }) {
   const decimals = Number(value) % 1;
-  const start = [];
+  const star = [];
   let leftPos = 0;
 
   for (let index = 0; index < 5 && index < value - decimals; index++) {
     leftPos = leftPos + width;
-    start.push(
+    star.push(
       <div
         className="star"
         key={`star-${index}`}
-        style={{ left: index * width, width: width, marginRight: spacing }}
+        style={{
+          left: index * width,
+          height: height,
+          width: width,
+          marginRight: spacing,
+        }}
       ></div>
     );
   }
@@ -21,15 +27,43 @@ export default function Star({ value, height, width, spacing }) {
     star.push(
       <div
         className="star"
-        key={`star-${index}`}
-        style={{ left: leftPos, width: width - spacing }}
+        key={`starWithDecimal`}
+        style={{
+          left: leftPos,
+          height: height,
+          width: decimals * width - spacing,
+        }}
       ></div>
     );
   }
 
-  const starPlaceHolder;
+  const starPlaceholder = [];
+  for (let index = 0; index < 5; index++) {
+    starPlaceholder.push(
+      <div
+        className="star placeholder"
+        key={`starPlaceholder-${index}`}
+        style={{
+          left: index * width,
+          height: height,
+          width: width,
+          marginRight: spacing,
+        }}
+      ></div>
+    );
+  }
 
-  return <div></div>;
+  return (
+    <>
+      <div
+        className={["stars", className].join(" ")}
+        style={{ height: height }}
+      >
+        {starPlaceholder}
+        {star}
+      </div>
+    </>
+  );
 }
 
 Star.propTypes = {
