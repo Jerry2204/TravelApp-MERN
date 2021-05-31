@@ -5,6 +5,7 @@ import Hero from "parts/Hero";
 import Popular from "parts/Popular";
 import Categories from "parts/Categories";
 import Testimoni from "parts/Testimoni";
+import Footer from "parts/Footer";
 
 export default class LandingPage extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ export default class LandingPage extends Component {
         <Popular refPopular={this.refPopular} data={landingPage.popular} />
         <Categories data={landingPage.categories} />
         <Testimoni data={landingPage.testimonial}></Testimoni>
+        <Footer />
       </>
     );
   }

@@ -10,7 +10,7 @@
         mask: url(../../assets/icons/Star.svg) no-repeat center left;
         &:not(.placeholder) {
             z-index: 2;
-            background-color: yellow;
+            background-color: $yellow;
         }
         &.placeholder {
             z-index: 1;
