@@ -2,9 +2,9 @@ import React from "react";
 import propTypes from "prop-types";
 import Button from "elements/Button";
 import "./index.scss";
-import { className } from "postcss-selector-parser";
 
 export default function Breadcrumb(props) {
+  const className = ["breadcrumb", props.className];
   return (
     <nav aria-label="breadcrumb">
       <ol className={className.join(" ")}>
