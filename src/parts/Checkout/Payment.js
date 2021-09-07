@@ -7,7 +7,7 @@ import logoBNI from "assets/images/bni.png";
 import logoMandiri from "assets/images/mandiri.png";
 
 export default function Payment(props) {
-  const { data, ItemDetails, chekout } = props;
+  const { data, ItemDetails, checkout } = props;
 
   const tax = 10;
   const subTotal = ItemDetails.price * checkout.duration;

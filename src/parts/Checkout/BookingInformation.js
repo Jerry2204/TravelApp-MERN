@@ -64,7 +64,7 @@ export default function BookingInformation(props) {
                 value={data.email}
                 onChange={props.onChange}
               />
-              <label htmlFor="phone">Email Address</label>
+              <label htmlFor="phone">Phone Number</label>
               <InputText
                 id="phone"
                 type="tel"

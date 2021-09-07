@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "parts/Header";
 import Fade from "react-reveal/Fade";
+import Header from "parts/Header";
 
 import Button from "elements/Button";
 import Stepper, {
@@ -14,7 +14,6 @@ import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 import ItemDetails from "json/itemDetails.json";
-
 export default class CheckoutPage extends Component {
   state = {
     data: {
@@ -97,8 +96,8 @@ export default class CheckoutPage extends Component {
                 <Controller>
                   {data.firstName !== "" &&
                     data.lastName !== "" &&
-                    data.email !== null &&
-                    data.phone !== null && (
+                    data.email !== "" &&
+                    data.phone !== "" && (
                       <Fade>
                         <Button
                           className="btn mb-3"
