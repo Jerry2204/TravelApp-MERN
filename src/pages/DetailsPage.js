@@ -1,26 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Header from 'parts/Header';
 
-import Header from "parts/Header";
-import PageDetailTitle from "parts/PageDetailTitle";
-import ItemDetails from "../json/itemDetails.json";
-import FeaturedImage from "parts/FeaturedImage";
-import PageDetailDesc from "parts/PageDetailDesc";
-import BookingForm from "parts/BookingForm";
-import Categories from "parts/Categories";
-import Testimoni from "parts/Testimoni";
-import Footer from "parts/Footer";
-import Fade from "react-reveal/Fade";
+import PageDetailTitle from 'parts/PageDetailTitle';
+import ItemDetails from '../json/itemDetails.json';
+import FeaturedImage from 'parts/FeaturedImage';
+import PageDetailDesc from 'parts/PageDetailDesc';
+import BookingForm from 'parts/BookingForm';
+import Categories from 'parts/Categories';
+import Testimoni from 'parts/Testimoni';
+import Footer from 'parts/Footer';
+import Fade from 'react-reveal/Fade';
 
-export default class DetailsPage extends Component {
+import { checkoutBooking } from 'store/actions/checkout';
+
+class DetailsPage extends Component {
   componentDidMount() {
-    window.title = "Details Page";
+    window.title = 'Details Page';
     window.scrollTo(0, 0);
   }
 
   render() {
     const breadcrumb = [
-      { pageTitle: "Home", pageHref: "" },
-      { pageTitle: "House Details", pageHref: "" },
+      { pageTitle: 'Home', pageHref: '' },
+      { pageTitle: 'House Details', pageHref: '' },
     ];
     return (
       <>
@@ -39,7 +42,10 @@ export default class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={ItemDetails} />
+                <BookingForm
+                  itemDetails={ItemDetails}
+                  startBooking={this.props.checkoutBooking}
+                />
               </Fade>
             </div>
           </div>
@@ -51,3 +57,5 @@ export default class DetailsPage extends Component {
     );
   }
 }
+
+export default connect(null, { checkoutBooking })(DetailsPage);
