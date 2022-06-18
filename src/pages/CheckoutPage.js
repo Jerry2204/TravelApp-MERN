@@ -46,7 +46,24 @@ class CheckoutPage extends Component {
     const { data } = this.state;
     const { checkout } = this.props;
 
-    if (!checkout) return <p className="text-center">Tidak ada</p>;
+    if (!checkout)
+      return (
+        <div className="container">
+          <div
+            className="row align-items-center justify-content-center text-center"
+            style={{ height: '100vh' }}
+          >
+            <div className="col-3">
+              Pilih kamar dulu
+              <div>
+                <Button className="btn mt-5" type="link" href="/" isPrimary>
+                  Back
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
 
     const steps = {
       bookingInformation: {
