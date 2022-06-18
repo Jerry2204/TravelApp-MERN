@@ -1,29 +1,31 @@
-import React, { Component } from "react";
-import Fade from "react-reveal/Fade";
-import Header from "parts/Header";
+import React, { Component } from 'react';
+import Fade from 'react-reveal/Fade';
+import { connect } from 'react-redux';
+import Header from 'parts/Header';
 
-import Button from "elements/Button";
+import Button from 'elements/Button';
 import Stepper, {
   Numbering,
   Meta,
   MainContent,
   Controller,
-} from "elements/Stepper";
+} from 'elements/Stepper';
 
-import BookingInformation from "parts/Checkout/BookingInformation";
-import Payment from "parts/Checkout/Payment";
-import Completed from "parts/Checkout/Completed";
-import ItemDetails from "json/itemDetails.json";
-export default class CheckoutPage extends Component {
+import BookingInformation from 'parts/Checkout/BookingInformation';
+import Payment from 'parts/Checkout/Payment';
+import Completed from 'parts/Checkout/Completed';
+import ItemDetails from 'json/itemDetails.json';
+import checkout from 'store/reducers/checkout';
+class CheckoutPage extends Component {
   state = {
     data: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      proofPayment: "",
-      bankName: "",
-      bankHolder: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      proofPayment: '',
+      bankName: '',
+      bankHolder: '',
     },
   };
 
@@ -42,14 +44,14 @@ export default class CheckoutPage extends Component {
 
   render() {
     const { data } = this.state;
-    const checkout = {
-      duration: 3,
-    };
+    const { checkout } = this.props;
+
+    if (!checkout) return <p className="text-center">Tidak ada</p>;
 
     const steps = {
       bookingInformation: {
-        title: "Booking Information",
-        description: "Please fill up the blank fields below",
+        title: 'Booking Information',
+        description: 'Please fill up the blank fields below',
         content: (
           <BookingInformation
             data={data}
@@ -60,8 +62,8 @@ export default class CheckoutPage extends Component {
         ),
       },
       payment: {
-        title: "Payment",
-        description: "Kindly follow the instruction below",
+        title: 'Payment',
+        description: 'Kindly follow the instruction below',
         content: (
           <Payment
             data={data}
@@ -72,7 +74,7 @@ export default class CheckoutPage extends Component {
         ),
       },
       completed: {
-        title: "Yay, Completed!",
+        title: 'Yay, Completed!',
         description: null,
         content: <Completed />,
       },
@@ -92,12 +94,12 @@ export default class CheckoutPage extends Component {
               <Meta data={steps} current={currentStep} />
               <MainContent data={steps} current={currentStep} />
 
-              {currentStep === "bookingInformation" && (
+              {currentStep === 'bookingInformation' && (
                 <Controller>
-                  {data.firstName !== "" &&
-                    data.lastName !== "" &&
-                    data.email !== "" &&
-                    data.phone !== "" && (
+                  {data.firstName !== '' &&
+                    data.lastName !== '' &&
+                    data.email !== '' &&
+                    data.phone !== '' && (
                       <Fade>
                         <Button
                           className="btn mb-3"
@@ -122,11 +124,11 @@ export default class CheckoutPage extends Component {
                 </Controller>
               )}
 
-              {currentStep === "payment" && (
+              {currentStep === 'payment' && (
                 <Controller>
-                  {data.proofPayment !== "" &&
-                    data.bankName !== "" &&
-                    data.bankHolder !== "" && (
+                  {data.proofPayment !== '' &&
+                    data.bankName !== '' &&
+                    data.bankHolder !== '' && (
                       <Fade>
                         <Button
                           className="btn mb-3"
@@ -151,7 +153,7 @@ export default class CheckoutPage extends Component {
                 </Controller>
               )}
 
-              {currentStep === "completed" && (
+              {currentStep === 'completed' && (
                 <Controller>
                   <Button
                     className="btn"
@@ -172,3 +174,9 @@ export default class CheckoutPage extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(CheckoutPage);
