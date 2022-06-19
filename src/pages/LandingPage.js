@@ -22,7 +22,7 @@ class LandingPage extends Component {
 
     if (!this.props.page.landingPage)
       this.props.fetchPage(
-        `https://admin-booking-accomodation.herokuapp.com/api/landing-page`,
+        `${process.env.REACT_APP_HOST}/api/landing-page`,
         'landingPage'
       );
   }

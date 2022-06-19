@@ -1,18 +1,18 @@
-import React from "react";
-import ImageHero from "assets/images/banner-img.png";
-import ImageFrame from "assets/images/banner-img-frame.png";
-import IconTraveler from "assets/icons/icon_traveler.svg";
-import IconPlace from "assets/icons/icon_places.svg";
-import IconCountry from "assets/icons/icon_country.svg";
-import Button from "elements/Button";
-import numberFormat from "utils/FormatNumber";
-import Fade from "react-reveal/Fade";
+import React from 'react';
+import ImageHero from 'assets/images/banner-img.png';
+import ImageFrame from 'assets/images/banner-img-frame.png';
+import IconTraveler from 'assets/icons/icon_traveler.svg';
+import IconCamera from 'assets/icons/icon_camera.svg';
+import IconPlace from 'assets/icons/icon_places.svg';
+import Button from 'elements/Button';
+import numberFormat from 'utils/FormatNumber';
+import Fade from 'react-reveal/Fade';
 
 export default function Hero(props) {
   function showPopular() {
     window.scrollTo({
       top: props.refPopular.current.offsetTop - 30,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }
 
@@ -28,7 +28,7 @@ export default function Hero(props) {
             </h1>
             <p
               className="mb-4 font-weight-light text-gray-500 w-75"
-              style={{ lineHeight: "170%" }}
+              style={{ lineHeight: '170%' }}
             >
               we provide what you need to enjoy your vacation with your family.
               It's time to create new moments with family.
@@ -42,7 +42,7 @@ export default function Hero(props) {
               Show Me Now
             </Button>
 
-            <div className="row" style={{ marginTop: "80px" }}>
+            <div className="row" style={{ marginTop: '80px' }}>
               <div className="col-auto" style={{ marginRight: 35 }}>
                 <img
                   width="32"
@@ -51,7 +51,7 @@ export default function Hero(props) {
                   alt={`${props.data.travelers} Travelers`}
                 />
                 <h6 className="mt-3">
-                  {numberFormat(props.data.travelers)}{" "}
+                  {numberFormat(props.data.travelers)}{' '}
                   <span className="text-gray-500 font-weight-light">
                     Travelers
                   </span>
@@ -61,13 +61,13 @@ export default function Hero(props) {
                 <img
                   width="32"
                   height="32"
-                  src={IconPlace}
-                  alt={`${props.data.places} Places`}
+                  src={IconCamera}
+                  alt={`${props.data.treasure} Beauty Spot`}
                 />
                 <h6 className="mt-3">
-                  {numberFormat(props.data.places)}{" "}
+                  {numberFormat(props.data.treasure)}{' '}
                   <span className="text-gray-500 font-weight-light">
-                    Places
+                    Beauty Spot
                   </span>
                 </h6>
               </div>
@@ -75,13 +75,13 @@ export default function Hero(props) {
                 <img
                   width="32"
                   height="32"
-                  src={IconCountry}
-                  alt={`${props.data.country} Country`}
+                  src={IconPlace}
+                  alt={`${props.data.cities} Cities`}
                 />
                 <h6 className="mt-3">
-                  {numberFormat(props.data.country)}{" "}
+                  {numberFormat(props.data.cities)}{' '}
                   <span className="text-gray-500 font-weight-light">
-                    Countries
+                    Cities
                   </span>
                 </h6>
               </div>
@@ -93,13 +93,13 @@ export default function Hero(props) {
                 src={ImageHero}
                 className="img-fluid position-absolute"
                 alt="Room With Couches"
-                style={{ margin: "-30px 0 0 -30px", zIndex: 1 }}
+                style={{ margin: '-30px 0 0 -30px', zIndex: 1 }}
               />
               <img
                 src={ImageFrame}
                 className="img-fluid position-absolute"
                 alt="Room With Couches frame"
-                style={{ margin: "0 -15px -15px 0px" }}
+                style={{ margin: '0 -15px -15px 0px' }}
               />
             </div>
           </div>

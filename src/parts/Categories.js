@@ -9,13 +9,7 @@ export default function Categories({ data }) {
         <Fade>
           <h4 className="mb-3 font-weight-medium">{category.name}</h4>
           <div className="container-grid">
-            {category.itemId.length === 0 ? (
-              <div className="row">
-                <div className="col-auto align-items-center">
-                  There is no property at this category
-                </div>
-              </div>
-            ) : (
+            {category.itemId.length > 0 &&  (
               category.itemId.map((item, index2) => {
                 return (
                   <div
