@@ -4,12 +4,13 @@ import Fade from 'react-reveal/Fade';
 
 export default function Categories({ data }) {
   return data.map((category, index1) => {
+    if (category.itemId.length === 0) return null 
     return (
       <section className="container" key={`category-${index1}`}>
         <Fade>
           <h4 className="mb-3 font-weight-medium">{category.name}</h4>
           <div className="container-grid">
-            {category.itemId.length > 0 &&  (
+            {
               category.itemId.map((item, index2) => {
                 return (
                   <div
@@ -52,7 +53,7 @@ export default function Categories({ data }) {
                   </div>
                 );
               })
-            )}
+            }
           </div>
         </Fade>
       </section>
