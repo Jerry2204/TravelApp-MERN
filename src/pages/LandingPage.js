@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import Header from 'parts/Header';
-import { fetchPage } from 'store/actions/page';
 import Hero from 'parts/Hero';
 import Popular from 'parts/Popular';
 import Categories from 'parts/Categories';
 import Testimoni from 'parts/Testimoni';
 import Footer from 'parts/Footer';
+
+import { fetchPage } from 'store/actions/page';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class LandingPage extends Component {
     window.title = 'Staycation | Home';
     window.scrollTo(0, 0);
 
-    if (!this.props.landingPage)
+    if (!this.props.page.landingPage)
       this.props.fetchPage(
         `https://admin-booking-accomodation.herokuapp.com/api/landing-page`,
         'landingPage'
@@ -28,13 +30,19 @@ class LandingPage extends Component {
   render() {
     const { page } = this.props;
 
+    console.log(page);
+
+    if (!page.hasOwnProperty('landingPage')) return null;
     return (
       <>
         <Header {...this.props} />
-        <Hero refPopular={this.refPopular} data={page.hero} />
-        <Popular refPopular={this.refPopular} data={page.popular} />
-        <Categories data={page.categories} />
-        <Testimoni data={page.testimonial}></Testimoni>
+        <Hero refPopular={this.refPopular} data={page.landingPage.hero} />
+        <Popular
+          refPopular={this.refPopular}
+          data={page.landingPage.mostPicked}
+        />
+        <Categories data={page.landingPage.category} />
+        <Testimoni data={page.landingPage.testimonial}></Testimoni>
         <Footer />
       </>
     );
@@ -42,7 +50,7 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.page ? state.page.landingPage : null,
+  page: state.page,
 });
 
 export default connect(mapStateToProps, { fetchPage })(LandingPage);
