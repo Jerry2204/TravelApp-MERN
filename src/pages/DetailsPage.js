@@ -20,14 +20,11 @@ class DetailsPage extends Component {
     window.title = 'Details Page';
     window.scrollTo(0, 0);
 
-    console.log('Mulai test');
     if (!this.props.page[this.props.match.params.id])
       this.props.fetchPage(
         `${process.env.REACT_APP_HOST}/api/detail-page/${this.props.match.params.id}`,
         this.props.match.params.id
       );
-
-    console.log('Akhir test');
   }
 
   render() {
