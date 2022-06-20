@@ -1,10 +1,11 @@
-import { React, useRef } from "react";
-import propTypes from "prop-types";
-import "./index.scss";
+import { React, useRef, useState } from 'react';
+import propTypes from 'prop-types';
+import './index.scss';
 
 export default function File(props) {
+  const [FileName, setFileName] = useState('');
+
   const {
-    value,
     placeholder,
     name,
     accept,
@@ -16,8 +17,19 @@ export default function File(props) {
 
   const refInputFile = useRef(null);
 
+  const onChange = (event) => {
+    setFileName(event.target.value);
+
+    props.onChange({
+      target: {
+        name: event.target.name,
+        value: event.target.files,
+      },
+    });
+  };
+
   return (
-    <div className={["input-text mb-3", outerClassName].join(" ")}>
+    <div className={['input-text mb-3', outerClassName].join(' ')}>
       <div className="input-group">
         {prepend && (
           <div className="input-group-prepend bg-gray-900">
@@ -30,14 +42,14 @@ export default function File(props) {
           ref={refInputFile}
           name={name}
           className="d-none"
-          value={value}
-          onChange={props.onChange}
+          value={FileName}
+          onChange={onChange}
         />
         <input
           onClick={() => refInputFile.current.click()}
-          defaultValue={value}
+          defaultValue={FileName}
           placeholder={placeholder}
-          className={["form-control", inputClassName].join(" ")}
+          className={['form-control', inputClassName].join(' ')}
         />
         {append && (
           <div className="input-group-append bg-gray-900">
@@ -50,7 +62,7 @@ export default function File(props) {
 }
 
 File.defaultProps = {
-  placeholder: "Browse a file...",
+  placeholder: 'Browse a file...',
 };
 
 File.propTypes = {
