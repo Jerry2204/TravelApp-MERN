@@ -1,9 +1,9 @@
-import "assets/scss/style.scss";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import LandingPage from "pages/LandingPage";
-import DetailsPage from "pages/DetailsPage";
-import ExamplePage from "pages/Example";
-import CheckoutPage from "pages/CheckoutPage";
+import 'assets/scss/style.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import LandingPage from 'pages/LandingPage';
+import DetailsPage from 'pages/DetailsPage';
+import ExamplePage from 'pages/Example';
+import CheckoutPage from 'pages/CheckoutPage';
 
 function App() {
   return (

@@ -51,7 +51,7 @@ class CheckoutPage extends Component {
     payload.append('firstName', data.firstName);
     payload.append('lastName', data.lastName);
     payload.append('email', data.email);
-    payload.append('phoneNumber', data.phone);
+    payload.append('phoneNumberas', data.phone);
     payload.append('itemId', checkout._id);
     payload.append('duration', checkout.duration);
     payload.append('bookingStartDate', checkout.date.startDate);

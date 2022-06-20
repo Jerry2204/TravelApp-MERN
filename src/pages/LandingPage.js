@@ -22,7 +22,7 @@ class LandingPage extends Component {
 
     if (!this.props.page.landingPage)
       this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/landing-page`,
+        `/landing-page`,
         'landingPage'
       );
   }
